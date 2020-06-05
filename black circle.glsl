@@ -7,6 +7,9 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 	
     float r = 0.3f;
     float l = sqrt(uv.x * uv.x + uv.y * uv.y);
-    vec3 c = l > r ? vec3(1) : vec3(0);
-    fragColor = vec4(c,1.0);
+    
+    
+    //float c = l > r ? 1.0f : 0.0f;
+    float c = smoothstep(r, r + 0.015, l);
+    fragColor = vec4(vec3(c),1.0);
 }
